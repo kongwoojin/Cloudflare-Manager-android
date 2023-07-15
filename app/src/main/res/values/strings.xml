@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Cloudflare Manager</string>
+
+    <!-- Login screen -->
+    <string name="login_title">Login</string>
+    <string name="login_email">Email</string>
+    <string name="login_api_key">API Key</string>
+    <string name="login_confirm">Login</string>
 </resources>
