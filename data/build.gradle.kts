@@ -2,6 +2,7 @@ plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
     id("kotlin-kapt")
+    id("dagger.hilt.android.plugin")
     id("org.jlleitschuh.gradle.ktlint") version Version.ktlint
 }
 
@@ -33,12 +34,17 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+    kapt {
+        correctErrorTypes = true
+    }
 }
 
 dependencies {
 
     implementation(project(":domain"))
     implementation(Dependency.AndroidX.coreKtx)
+    implementation(Dependency.Hilt.hilt)
+    kapt(Dependency.Hilt.hiltCompiler)
     testImplementation(Dependency.Test.junit)
     androidTestImplementation(Dependency.AndroidTest.junit)
     androidTestImplementation(Dependency.AndroidTest.espresso)

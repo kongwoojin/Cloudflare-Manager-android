@@ -3,4 +3,5 @@ plugins {
     id("com.android.application") version Version.Android.application apply false
     id("com.android.library") version Version.Android.library apply false
     id("org.jetbrains.kotlin.android") version Version.Kotlin.kotlin apply false
+    id("com.google.dagger.hilt.android") version Version.Hilt.hilt apply false
 }

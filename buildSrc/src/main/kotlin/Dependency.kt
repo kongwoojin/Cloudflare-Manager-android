@@ -29,4 +29,9 @@ object Dependency {
         const val composeUITooling = "androidx.compose.ui:ui-tooling:${Version.Debug.composeUITooling}"
         const val composeUITestManifest = "androidx.compose.ui:ui-test-manifest:${Version.Debug.composeUITestManifest}"
     }
+
+    object Hilt {
+        const val hilt = "com.google.dagger:hilt-android:${Version.Hilt.hilt}"
+        const val hiltCompiler = "com.google.dagger:hilt-android-compiler:${Version.Hilt.hilt}"
+    }
 }

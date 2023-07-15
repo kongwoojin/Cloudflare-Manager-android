@@ -2,6 +2,7 @@ plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
     id("kotlin-kapt")
+    id("dagger.hilt.android.plugin")
     id("org.jlleitschuh.gradle.ktlint") version Version.ktlint
 }
 
@@ -49,6 +50,9 @@ android {
             excludes.add("/META-INF/{AL2.0,LGPL2.1}")
         }
     }
+    kapt {
+        correctErrorTypes = true
+    }
 }
 
 dependencies {
@@ -64,6 +68,8 @@ dependencies {
     implementation(Dependency.AndroidX.composeUIGraphics)
     implementation(Dependency.AndroidX.composeUIToolingPreview)
     implementation(Dependency.AndroidX.composeMaterial3)
+    implementation(Dependency.Hilt.hilt)
+    kapt(Dependency.Hilt.hiltCompiler)
     testImplementation(Dependency.Test.junit)
     androidTestImplementation(Dependency.AndroidTest.junit)
     androidTestImplementation(Dependency.AndroidTest.espresso)

@@ -41,5 +41,9 @@ object Version {
         const val jvmTarget = "1.8"
     }
 
+    object Hilt {
+        const val hilt = "2.43.2"
+    }
+
     const val ktlint = "11.5.0"
 }
