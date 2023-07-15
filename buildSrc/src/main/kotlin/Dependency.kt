@@ -38,5 +38,10 @@ object Dependency {
         const val hiltCompiler = "com.google.dagger:hilt-android-compiler:${Version.Hilt.hilt}"
     }
 
-    const val retrofit = "com.squareup.retrofit2:retrofit:${Version.retrofit}"
+    object Okhttp {
+        const val retrofit = "com.squareup.retrofit2:retrofit:${Version.Okhttp.retrofit}"
+        const val convertGson = "com.squareup.retrofit2:converter-gson:${Version.Okhttp.retrofit}"
+        const val okhttp = "com.squareup.okhttp3:okhttp:${Version.Okhttp.okhttp}"
+        const val loggingInterceptor = "com.squareup.okhttp3:logging-interceptor:${Version.Okhttp.okhttp}"
+    }
 }

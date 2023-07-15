@@ -46,6 +46,10 @@ object Version {
         const val hilt = "2.43.2"
     }
 
+    object Okhttp {
+        const val retrofit = "2.9.0"
+        const val okhttp = "4.11.0"
+    }
+
     const val ktlint = "11.5.0"
-    const val retrofit = "2.9.0"
 }
