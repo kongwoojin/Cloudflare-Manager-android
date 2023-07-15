@@ -13,6 +13,7 @@ object Version {
         const val composeUIToolingPreview = "1.4.3"
         const val composeMaterial3 = "1.1.1"
         const val composeBom = "2022.10.00"
+        const val datastorePreference = "1.0.0"
     }
 
     object Kotlin {

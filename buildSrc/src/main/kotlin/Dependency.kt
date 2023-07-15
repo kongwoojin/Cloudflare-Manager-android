@@ -8,6 +8,7 @@ object Dependency {
         const val composeUIToolingPreview = "androidx.compose.ui:ui-tooling-preview:${Version.AndroidX.composeUIToolingPreview}"
         const val composeMaterial3 = "androidx.compose.material3:material3:${Version.AndroidX.composeMaterial3}"
         const val composeBom = "androidx.compose:compose-bom:${Version.AndroidX.composeBom}"
+        const val datastorePreference = "androidx.datastore:datastore-preferences:${Version.AndroidX.datastorePreference}"
     }
 
     object Kotlin {

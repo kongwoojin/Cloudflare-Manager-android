@@ -43,6 +43,7 @@ dependencies {
 
     implementation(project(":domain"))
     implementation(Dependency.AndroidX.coreKtx)
+    implementation(Dependency.AndroidX.datastorePreference)
     implementation(Dependency.Hilt.hilt)
     kapt(Dependency.Hilt.hiltCompiler)
     implementation(Dependency.retrofit)
