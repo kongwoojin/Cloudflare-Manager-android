@@ -6,7 +6,7 @@ object Version {
 
     object AndroidX {
         const val coreKtx = "1.10.1"
-        const val lifecycleRuntime = "2.6.1"
+        const val lifecycle = "2.6.1"
         const val activityCompose = "1.7.2"
         const val composeUI = "1.4.3"
         const val composeUIGraphics = "1.4.3"

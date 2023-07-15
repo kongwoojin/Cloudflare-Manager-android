@@ -62,6 +62,8 @@ dependencies {
     implementation(Dependency.AndroidX.coreKtx)
     implementation(project.dependencies.platform(Dependency.Kotlin.kotlinBom))
     implementation(Dependency.AndroidX.lifecycleRuntime)
+    implementation(Dependency.AndroidX.lifecycleViewModel)
+    implementation(Dependency.AndroidX.lifecycleViewModelCompose)
     implementation(Dependency.AndroidX.activityCompose)
     implementation(project.dependencies.platform(Dependency.AndroidX.composeBom))
     implementation(Dependency.AndroidX.composeUI)

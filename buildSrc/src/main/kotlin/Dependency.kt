@@ -1,7 +1,9 @@
 object Dependency {
     object AndroidX {
         const val coreKtx = "androidx.core:core-ktx:${Version.AndroidX.coreKtx}"
-        const val lifecycleRuntime = "androidx.lifecycle:lifecycle-runtime-ktx:${Version.AndroidX.lifecycleRuntime}"
+        const val lifecycleRuntime = "androidx.lifecycle:lifecycle-runtime-ktx:${Version.AndroidX.lifecycle}"
+        const val lifecycleViewModel = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Version.AndroidX.lifecycle}"
+        const val lifecycleViewModelCompose = "androidx.lifecycle:lifecycle-viewmodel-compose:${Version.AndroidX.lifecycle}"
         const val activityCompose = "androidx.activity:activity-compose:${Version.AndroidX.activityCompose}"
         const val composeUI = "androidx.compose.ui:ui:${Version.AndroidX.composeUI}"
         const val composeUIGraphics = "androidx.compose.ui:ui-graphics:${Version.AndroidX.composeUIGraphics}"
