@@ -46,4 +46,5 @@ object Version {
     }
 
     const val ktlint = "11.5.0"
+    const val retrofit = "2.9.0"
 }

@@ -45,6 +45,7 @@ dependencies {
     implementation(Dependency.AndroidX.coreKtx)
     implementation(Dependency.Hilt.hilt)
     kapt(Dependency.Hilt.hiltCompiler)
+    implementation(Dependency.retrofit)
     testImplementation(Dependency.Test.junit)
     androidTestImplementation(Dependency.AndroidTest.junit)
     androidTestImplementation(Dependency.AndroidTest.espresso)
