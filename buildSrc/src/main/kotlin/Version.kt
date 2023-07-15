@@ -40,4 +40,6 @@ object Version {
     object Java {
         const val jvmTarget = "1.8"
     }
+
+    const val ktlint = "11.5.0"
 }
