@@ -6,8 +6,14 @@ import retrofit2.http.GET
 import retrofit2.http.Header
 
 interface API {
+
+    @GET("user/tokens/verify")
+    suspend fun verifyToken(
+        @Header(AUTHORIZATION) token: String
+    ): Response<Any>
+
     @GET("zones")
     suspend fun getZones(
-        @Header("Authorization") token: String,
+        @Header(AUTHORIZATION) token: String,
     ): Response<Any>
 }
