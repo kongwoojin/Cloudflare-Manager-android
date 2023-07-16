@@ -1,4 +1,4 @@
-package com.kongjak.cloudflaremanager.ui.viewmodel
+package com.kongjak.cloudflaremanager.ui.login
 
 import androidx.lifecycle.ViewModel
 import com.kongjak.cloudflaremanager.domain.usecase.GetUserAPIKeyUseCase
