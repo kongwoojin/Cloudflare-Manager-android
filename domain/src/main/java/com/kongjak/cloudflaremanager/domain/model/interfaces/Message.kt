@@ -1,6 +1,7 @@
 package com.kongjak.cloudflaremanager.domain.model.interfaces
 
-interface ErrorChain {
+interface Message {
     val code: Int
     val message: String
+    val type: Any
 }
