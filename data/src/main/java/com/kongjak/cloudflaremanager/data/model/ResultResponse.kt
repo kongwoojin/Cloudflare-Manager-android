@@ -1,12 +1,10 @@
 package com.kongjak.cloudflaremanager.data.model
 
 import com.google.gson.annotations.SerializedName
-import com.kongjak.cloudflaremanager.domain.model.interfaces.Account
-import com.kongjak.cloudflaremanager.domain.model.interfaces.Meta
 import com.kongjak.cloudflaremanager.domain.model.interfaces.Result
 
 data class ResultResponse(
-    override val account: Account,
+    override val account: AccountResponse,
     @SerializedName("activated_on")
     override val activatedOn: String,
     @SerializedName("created_on")
@@ -14,7 +12,7 @@ data class ResultResponse(
     @SerializedName("development_mode")
     override val developmentMode: Int,
     override val id: String,
-    override val meta: Meta,
+    override val meta: MetaResponse,
     @SerializedName("modified_on")
     override val modifiedOn: String,
     override val name: String,
