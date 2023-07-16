@@ -6,4 +6,4 @@ data class MessageResponse(
     override val code: Int,
     override val message: String,
     override val type: Any
-): Message
+) : Message

@@ -8,4 +8,4 @@ data class ErrorResponse(
     @SerializedName("error_chain")
     override val errorChain: List<ErrorChainResponse>,
     override val message: String
-): Error
+) : Error

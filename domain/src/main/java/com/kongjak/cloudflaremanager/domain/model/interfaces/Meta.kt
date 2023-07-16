@@ -1,6 +1,6 @@
 package com.kongjak.cloudflaremanager.domain.model.interfaces
 
-interface Meta{
+interface Meta {
     val customCertificateQuota: Int
     val multipleRailgunsAllowed: Boolean
     val pageRuleQuota: Int

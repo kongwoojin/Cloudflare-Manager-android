@@ -1,6 +1,6 @@
 package com.kongjak.cloudflaremanager.domain.model.interfaces
 
-interface Owner{
+interface Owner {
     val email: Any
     val id: Any
     val type: String

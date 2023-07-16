@@ -33,4 +33,4 @@ data class ResultResponse(
     @SerializedName("tenant_unit")
     override val tenantUnit: TenantUnitResponse,
     override val type: String
-): Result
+) : Result

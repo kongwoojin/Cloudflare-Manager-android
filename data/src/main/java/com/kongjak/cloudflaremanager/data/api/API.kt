@@ -14,6 +14,6 @@ interface API {
 
     @GET("zones")
     suspend fun getZones(
-        @Header(AUTHORIZATION) token: String,
+        @Header(AUTHORIZATION) token: String
     ): Response<Any>
 }

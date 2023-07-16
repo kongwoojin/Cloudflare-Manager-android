@@ -1,6 +1,6 @@
 package com.kongjak.cloudflaremanager.domain.model.interfaces
 
-interface Tenant{
+interface Tenant {
     val id: Any
     val name: Any
 }

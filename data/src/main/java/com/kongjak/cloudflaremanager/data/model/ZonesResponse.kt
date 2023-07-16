@@ -10,4 +10,4 @@ data class ZonesResponse(
     @SerializedName("result_info")
     override val resultInfo: ResultInfoResponse?,
     override val success: Boolean
-): Zones
+) : Zones

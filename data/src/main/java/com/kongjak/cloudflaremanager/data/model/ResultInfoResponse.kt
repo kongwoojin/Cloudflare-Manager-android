@@ -12,4 +12,4 @@ data class ResultInfoResponse(
     override val totalCount: Int,
     @SerializedName("total_pages")
     override val totalPages: Int
-): ResultInfo
+) : ResultInfo

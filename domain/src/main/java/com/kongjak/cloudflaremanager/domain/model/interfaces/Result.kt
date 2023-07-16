@@ -1,6 +1,6 @@
 package com.kongjak.cloudflaremanager.domain.model.interfaces
 
-interface Result{
+interface Result {
     val account: Account
     val activatedOn: String
     val createdOn: String

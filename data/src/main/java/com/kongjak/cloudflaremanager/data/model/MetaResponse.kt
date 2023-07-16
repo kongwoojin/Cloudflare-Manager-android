@@ -13,4 +13,4 @@ data class MetaResponse(
     @SerializedName("phishing_detected")
     override val phishingDetected: Boolean,
     override val step: Int
-): Meta
+) : Meta

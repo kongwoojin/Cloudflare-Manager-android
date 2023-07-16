@@ -6,4 +6,4 @@ data class OwnerResponse(
     override val email: Any,
     override val id: Any,
     override val type: String
-): Owner
+) : Owner

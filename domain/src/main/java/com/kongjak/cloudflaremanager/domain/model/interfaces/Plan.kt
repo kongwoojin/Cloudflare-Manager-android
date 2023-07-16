@@ -1,6 +1,6 @@
 package com.kongjak.cloudflaremanager.domain.model.interfaces
 
-interface Plan{
+interface Plan {
     val canSubscribe: Boolean
     val currency: String
     val externallyManaged: Boolean

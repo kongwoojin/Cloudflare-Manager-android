@@ -19,4 +19,4 @@ data class PlanResponse(
     override val legacyId: String,
     override val name: String,
     override val price: Int
-): Plan
+) : Plan
