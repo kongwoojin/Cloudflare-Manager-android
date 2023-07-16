@@ -20,8 +20,8 @@ class CloudflareRemoteDataSource @Inject constructor(private val api: API) {
         }
     }
 
-    suspend fun getZones(token: String): Zones {
-        val response = api.getZones("Bearer $token")
+    suspend fun getZones(token: String, page: Int): Zones {
+        val response = api.getZones("Bearer $token", page)
         val gson = Gson()
 
         return if (response.isSuccessful) {

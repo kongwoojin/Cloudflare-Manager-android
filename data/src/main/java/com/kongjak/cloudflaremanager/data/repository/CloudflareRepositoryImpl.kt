@@ -11,7 +11,7 @@ class CloudflareRepositoryImpl @Inject constructor(private val cloudflareRemoteD
         return cloudflareRemoteDataSource.verifyToken(token)
     }
 
-    override suspend fun getZones(token: String): Zones {
-        return cloudflareRemoteDataSource.getZones(token)
+    override suspend fun getZones(token: String, page: Int): Zones {
+        return cloudflareRemoteDataSource.getZones(token, page)
     }
 }
