@@ -44,4 +44,10 @@ object Dependency {
         const val okhttp = "com.squareup.okhttp3:okhttp:${Version.Okhttp.okhttp}"
         const val loggingInterceptor = "com.squareup.okhttp3:logging-interceptor:${Version.Okhttp.okhttp}"
     }
+
+    object Orbit {
+        const val core = "org.orbit-mvi:orbit-core:${Version.Orbit.orbit}"
+        const val viewmodel = "org.orbit-mvi:orbit-viewmodel:${Version.Orbit.orbit}"
+        const val compose = "org.orbit-mvi:orbit-compose:${Version.Orbit.orbit}"
+    }
 }

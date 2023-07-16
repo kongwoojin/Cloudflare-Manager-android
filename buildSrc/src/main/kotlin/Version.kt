@@ -51,5 +51,9 @@ object Version {
         const val okhttp = "4.11.0"
     }
 
+    object Orbit {
+        const val orbit = "6.0.0"
+    }
+
     const val ktlint = "11.5.0"
 }
