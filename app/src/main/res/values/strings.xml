@@ -5,4 +5,8 @@
     <string name="login_title">Login</string>
     <string name="login_token">Token</string>
     <string name="login_confirm">Login</string>
+
+    <!-- Dashboard -->
+    <string name="dashboard_title">Dashboard</string>
+    <string name="dashboard_domain_plan">Plan: %s (%d %s)</string>
 </resources>

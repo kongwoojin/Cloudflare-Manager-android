@@ -9,6 +9,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
 import com.kongjak.cloudflaremanager.ui.dashboard.Dashboard
+import com.kongjak.cloudflaremanager.ui.dashboard.DashboardViewModel
 import com.kongjak.cloudflaremanager.ui.login.LoginScreen
 import com.kongjak.cloudflaremanager.ui.login.LoginViewModel
 import com.kongjak.cloudflaremanager.ui.theme.CloudflareManagerTheme
@@ -19,6 +20,7 @@ import org.orbitmvi.orbit.compose.collectAsState
 class MainActivity : ComponentActivity() {
 
     private val loginViewModel: LoginViewModel by viewModels()
+    private val dashboardViewModel: DashboardViewModel by viewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
@@ -29,7 +31,7 @@ class MainActivity : ComponentActivity() {
                 ) {
                     val loginState = loginViewModel.collectAsState().value
                     if (loginState.isVerified) {
-                        Dashboard()
+                        Dashboard(dashboardViewModel = dashboardViewModel)
                     } else {
                         LoginScreen(loginViewModel = loginViewModel)
                     }
