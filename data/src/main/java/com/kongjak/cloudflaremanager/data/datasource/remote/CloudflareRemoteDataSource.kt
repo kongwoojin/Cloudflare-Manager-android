@@ -10,7 +10,7 @@ import javax.inject.Inject
 
 class CloudflareRemoteDataSource @Inject constructor(private val api: API) {
     suspend fun verifyToken(token: String): Verify {
-        val response = api.getZones("Bearer $token")
+        val response = api.verifyToken("Bearer $token")
         val gson = Gson()
 
         return if (response.isSuccessful) {

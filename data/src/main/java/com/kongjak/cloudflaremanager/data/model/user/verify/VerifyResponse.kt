@@ -7,6 +7,6 @@ import com.kongjak.cloudflaremanager.domain.model.interfaces.user.verify.Verify
 data class VerifyResponse(
     override val errors: List<ErrorResponse>,
     override val messages: List<MessageResponse>,
-    override val result: List<ResultResponse>,
+    override val result: ResultResponse,
     override val success: Boolean
 ) : Verify

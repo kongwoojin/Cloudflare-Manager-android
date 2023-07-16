@@ -6,6 +6,6 @@ import com.kongjak.cloudflaremanager.domain.model.interfaces.Message
 interface Verify {
     val errors: List<Error>?
     val messages: List<Message>
-    val result: List<Result>
+    val result: Result
     val success: Boolean
 }
