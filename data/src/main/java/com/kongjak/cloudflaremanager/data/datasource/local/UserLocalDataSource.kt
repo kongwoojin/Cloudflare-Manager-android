@@ -9,7 +9,9 @@ import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.runBlocking
 import java.io.IOException
 import javax.inject.Inject
 
@@ -25,16 +27,7 @@ class UserLocalDataSource @Inject constructor(
         }
     }
 
-    fun getUserToken(): Flow<String> {
-        return context.dataStore.data
-            .catch{ exception ->
-                if(exception is IOException){
-                    emit(emptyPreferences())
-                }else{
-                    throw exception
-                }
-            }.map{
-                it[userToken] ?: ""
-            }
+    fun getUserToken(): String? {
+        return runBlocking { context.dataStore.data.first()[userToken] }
     }
 }

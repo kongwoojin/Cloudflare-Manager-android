@@ -12,7 +12,7 @@ class UserRepositoryImpl @Inject constructor(
         userLocalDataSource.setUserToken(token)
     }
 
-    override fun getUserToken(): Flow<String> {
+    override fun getUserToken(): String? {
         return userLocalDataSource.getUserToken()
     }
 }
