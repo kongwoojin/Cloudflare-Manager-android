@@ -8,19 +8,11 @@ import javax.inject.Inject
 class UserRepositoryImpl @Inject constructor(
     private val userLocalDataSource: UserLocalDataSource
 ): UserRepository {
-    override suspend fun setUserEmail(email: String) {
-        userLocalDataSource.setUserEmail(email)
+    override suspend fun setUserToken(token: String) {
+        userLocalDataSource.setUserToken(token)
     }
 
-    override fun getUserEmail(): Flow<String> {
-        return userLocalDataSource.getUserEmail()
-    }
-
-    override suspend fun setUserAPIKey(apiKey: String) {
-        userLocalDataSource.setUserAPIKey(apiKey)
-    }
-
-    override fun getUserAPIKey(): Flow<String> {
-        return userLocalDataSource.getUserAPIKey()
+    override fun getUserToken(): Flow<String> {
+        return userLocalDataSource.getUserToken()
     }
 }

@@ -17,16 +17,15 @@ class UserLocalDataSource @Inject constructor(
     private val context: Context
 ) {
     private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "user")
-    private val userEmail = stringPreferencesKey("user_email")
-    private val userAPIKey = stringPreferencesKey("user_api_key")
+    private val userToken = stringPreferencesKey("user_token")
 
-    suspend fun setUserEmail(email: String) {
+    suspend fun setUserToken(token: String) {
         context.dataStore.edit { user ->
-            user[userEmail] = email
+            user[userToken] = token
         }
     }
 
-    fun getUserEmail(): Flow<String> {
+    fun getUserToken(): Flow<String> {
         return context.dataStore.data
             .catch{ exception ->
                 if(exception is IOException){
@@ -35,26 +34,7 @@ class UserLocalDataSource @Inject constructor(
                     throw exception
                 }
             }.map{
-                it[userEmail] ?: ""
-            }
-    }
-
-    suspend fun setUserAPIKey(apiKey: String) {
-        context.dataStore.edit { user ->
-            user[userAPIKey] = apiKey
-        }
-    }
-
-    fun getUserAPIKey(): Flow<String> {
-        return context.dataStore.data
-            .catch{ exception ->
-                if(exception is IOException){
-                    emit(emptyPreferences())
-                }else{
-                    throw exception
-                }
-            }.map{
-                it[userAPIKey] ?: ""
+                it[userToken] ?: ""
             }
     }
 }

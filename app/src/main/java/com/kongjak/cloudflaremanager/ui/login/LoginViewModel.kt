@@ -1,10 +1,10 @@
 package com.kongjak.cloudflaremanager.ui.login
 
 import androidx.lifecycle.ViewModel
-import com.kongjak.cloudflaremanager.domain.usecase.GetUserAPIKeyUseCase
-import com.kongjak.cloudflaremanager.domain.usecase.GetUserEmailUseCase
-import com.kongjak.cloudflaremanager.domain.usecase.SetUserAPIKeyUseCase
-import com.kongjak.cloudflaremanager.domain.usecase.SetUserEmailUseCase
+import androidx.lifecycle.viewModelScope
+import com.kongjak.cloudflaremanager.domain.repository.CloudflareRepository
+import com.kongjak.cloudflaremanager.domain.usecase.GetUserTokenUseCase
+import com.kongjak.cloudflaremanager.domain.usecase.SetUserTokenUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -13,16 +13,13 @@ import javax.inject.Inject
 
 @HiltViewModel
 class LoginViewModel @Inject constructor(
-    private val getUserAPIKeyUseCase: GetUserAPIKeyUseCase,
-    private val getUserEmailUseCase: GetUserEmailUseCase,
-    private val setUserAPIKeyUseCase: SetUserAPIKeyUseCase,
-    private val setUserEmailUseCase: SetUserEmailUseCase
+    private val getUserTokenUseCase: GetUserTokenUseCase,
+    private val setUserTokenUseCase: SetUserTokenUseCase
 ): ViewModel() {
 
-    fun addUserData(email: String, apiKey: String) {
+    fun addUserData(token: String) {
         CoroutineScope(Dispatchers.IO).launch {
-            setUserEmailUseCase(email)
-            setUserAPIKeyUseCase(apiKey)
+            setUserTokenUseCase(token)
         }
     }
 }

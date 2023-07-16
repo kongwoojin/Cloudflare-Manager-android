@@ -7,8 +7,8 @@ import com.kongjak.cloudflaremanager.domain.model.interfaces.Zones
 import javax.inject.Inject
 
 class CloudflareRemoteDataSource @Inject constructor(private val api: API) {
-    suspend fun getZones(email: String, apiKey: String): Zones {
-        val response = api.getZones(email, apiKey)
+    suspend fun getZones(token: String): Zones {
+        val response = api.getZones("Bearer $token")
         val gson = Gson()
 
         return if (response.isSuccessful) {

@@ -31,8 +31,7 @@ fun LoginScreen(loginViewModel: LoginViewModel = viewModel()) {
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        var email by remember { mutableStateOf("") }
-        var apiKey by remember { mutableStateOf("") }
+        var token by remember { mutableStateOf("") }
 
         Text(
             modifier = Modifier.padding(16.dp),
@@ -42,22 +41,14 @@ fun LoginScreen(loginViewModel: LoginViewModel = viewModel()) {
 
         OutlinedTextField(
             modifier = Modifier.padding(16.dp),
-            value = email,
-            onValueChange = { email = it },
-            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Email),
-            label = { Text(stringResource(id = R.string.login_email)) }
-        )
-
-        OutlinedTextField(
-            modifier = Modifier.padding(16.dp),
-            value = apiKey,
-            onValueChange = { apiKey = it },
+            value = token,
+            onValueChange = { token = it },
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
-            label = { Text(stringResource(id = R.string.login_api_key)) }
+            label = { Text(stringResource(id = R.string.login_token)) }
         )
 
         Button(onClick = {
-            loginViewModel.addUserData(email, apiKey)
+            loginViewModel.addUserData(token)
         }) {
             Text(text = stringResource(id = R.string.login_confirm))
         }
