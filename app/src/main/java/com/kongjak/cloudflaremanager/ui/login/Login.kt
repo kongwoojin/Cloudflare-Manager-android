@@ -8,6 +8,7 @@ import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.Button
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
@@ -29,35 +30,43 @@ fun LoginScreen(loginViewModel: LoginViewModel) {
 
     loginViewModel.collectSideEffect { handleSideEffect(it) }
 
-    Column(
-        modifier = Modifier.fillMaxSize(),
-        verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
-        if (state.uiState == UiState.Loading) {
-            CircularProgressIndicator()
-        } else {
-            Text(
-                modifier = Modifier.padding(16.dp),
-                text = stringResource(id = R.string.login_title),
-                fontSize = 24.sp
-            )
+    Scaffold(
+        content = { contentPadding ->
 
-            OutlinedTextField(
-                modifier = Modifier.padding(16.dp),
-                value = token,
-                onValueChange = loginViewModel::setToken,
-                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
-                label = { Text(stringResource(id = R.string.login_token)) }
-            )
+            Column(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(contentPadding),
+                verticalArrangement = Arrangement.Center,
+                horizontalAlignment = Alignment.CenterHorizontally
+            ) {
+                if (state.uiState == UiState.Loading) {
+                    CircularProgressIndicator()
+                } else {
+                    Text(
+                        modifier = Modifier.padding(16.dp),
+                        text = stringResource(id = R.string.login_title),
+                        fontSize = 24.sp
+                    )
 
-            Button(onClick = {
-                loginViewModel.verifyToken(token)
-            }) {
-                Text(text = stringResource(id = R.string.login_confirm))
+                    OutlinedTextField(
+                        modifier = Modifier.padding(16.dp),
+                        value = token,
+                        onValueChange = loginViewModel::setToken,
+                        keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
+                        label = { Text(stringResource(id = R.string.login_token)) }
+                    )
+
+                    Button(onClick = {
+                        loginViewModel.verifyToken(token)
+                    }) {
+                        Text(text = stringResource(id = R.string.login_confirm))
+                    }
+                }
             }
         }
-    }
+    )
+
 }
 
 private fun handleSideEffect(sideEffect: LoginSideEffect) {
