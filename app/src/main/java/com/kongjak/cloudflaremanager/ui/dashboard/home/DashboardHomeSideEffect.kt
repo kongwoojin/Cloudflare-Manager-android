@@ -1,8 +1,7 @@
-package com.kongjak.cloudflaremanager.ui.dashboard
+package com.kongjak.cloudflaremanager.ui.dashboard.home
 
-import com.kongjak.cloudflaremanager.domain.model.interfaces.Error
+import com.kongjak.cloudflaremanager.domain.model.interfaces.zone.list.Error
 
-sealed class DashboardSideEffect {
-    object TokenUnavailable : DashboardSideEffect()
-    data class APIFailed(val errorMessage: List<Error>) : DashboardSideEffect()
+sealed class DashboardHomeSideEffect {
+    data class APIFailed(val errorMessage: List<Error>) : DashboardHomeSideEffect()
 }

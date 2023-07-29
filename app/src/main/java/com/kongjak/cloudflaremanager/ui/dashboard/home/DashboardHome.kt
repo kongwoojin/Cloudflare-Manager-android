@@ -1,4 +1,4 @@
-package com.kongjak.cloudflaremanager.ui.dashboard
+package com.kongjak.cloudflaremanager.ui.dashboard.home
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -32,18 +32,20 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.kongjak.cloudflaremanager.R
-import com.kongjak.cloudflaremanager.domain.model.interfaces.Result
+import com.kongjak.cloudflaremanager.domain.model.interfaces.zone.common.Result
 import com.kongjak.cloudflaremanager.ui.common.UiState
+import com.kongjak.cloudflaremanager.ui.dashboard.common.DashboardViewModel
 import org.orbitmvi.orbit.compose.collectAsState
 import org.orbitmvi.orbit.compose.collectSideEffect
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun Dashboard(dashboardViewModel: DashboardViewModel) {
-    val state = dashboardViewModel.collectAsState().value
+fun Dashboard(token: String, dashboardViewModel: DashboardViewModel, dashboardHomeViewModel: DashboardHomeViewModel = viewModel()) {
+    val state = dashboardHomeViewModel.collectAsState().value
 
-    dashboardViewModel.collectSideEffect { handleSideEffect(it) }
+    dashboardHomeViewModel.collectSideEffect { handleSideEffect(it) }
 
     val scrollBehavior = TopAppBarDefaults.exitUntilCollapsedScrollBehavior()
     Scaffold(
@@ -61,6 +63,9 @@ fun Dashboard(dashboardViewModel: DashboardViewModel) {
             )
         },
         content = { contentPadding ->
+            LaunchedEffect(key1 = Unit) {
+                dashboardHomeViewModel.getZones(token)
+            }
             if (state.uiState == UiState.Success) {
                 val listState = rememberLazyListState()
                 LazyColumn(contentPadding = contentPadding, state = listState) {
@@ -69,7 +74,7 @@ fun Dashboard(dashboardViewModel: DashboardViewModel) {
                     }
                 }
                 listState.OnBottomReached {
-                    dashboardViewModel.loadMore()
+                    dashboardHomeViewModel.loadMore()
                 }
             } else {
                 Column(
@@ -85,13 +90,13 @@ fun Dashboard(dashboardViewModel: DashboardViewModel) {
 }
 
 @Composable
-fun DashboardItem(dashboardViewModel: DashboardViewModel,result: Result) {
+fun DashboardItem(dashboardViewModel: DashboardViewModel, result: Result) {
     Card(
         modifier = Modifier
             .fillMaxWidth()
             .padding(horizontal = 16.dp, vertical = 8.dp)
             .clickable {
-                TODO()
+                dashboardViewModel.setDomainId(result.id)
             }
     ) {
         Row(
@@ -133,11 +138,9 @@ fun DomainStatus(status: String) {
     }
 }
 
-private fun handleSideEffect(sideEffect: DashboardSideEffect) {
+private fun handleSideEffect(sideEffect: DashboardHomeSideEffect) {
     when (sideEffect) {
-        is DashboardSideEffect.APIFailed -> {}
-        is DashboardSideEffect.DomainSelected -> TODO()
-        DashboardSideEffect.TokenUnavailable -> {}
+        is DashboardHomeSideEffect.APIFailed -> {}
     }
 }
 

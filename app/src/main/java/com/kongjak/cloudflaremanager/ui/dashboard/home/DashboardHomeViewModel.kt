@@ -1,8 +1,8 @@
-package com.kongjak.cloudflaremanager.ui.dashboard
+package com.kongjak.cloudflaremanager.ui.dashboard.home
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.kongjak.cloudflaremanager.domain.model.interfaces.Result
+import com.kongjak.cloudflaremanager.domain.model.interfaces.zone.common.Result
 import com.kongjak.cloudflaremanager.domain.usecase.GetUserTokenUseCase
 import com.kongjak.cloudflaremanager.domain.usecase.GetZonesUseCase
 import com.kongjak.cloudflaremanager.ui.common.UiState
@@ -18,47 +18,15 @@ import org.orbitmvi.orbit.viewmodel.container
 import javax.inject.Inject
 
 @HiltViewModel
-class DashboardViewModel @Inject constructor(
-    private val getUserTokenUseCase: GetUserTokenUseCase,
+class DashboardHomeViewModel @Inject constructor(
     private val getZonesUseCase: GetZonesUseCase
-) : ContainerHost<DashboardState, DashboardSideEffect>, ViewModel() {
+) : ContainerHost<DashboardHomeState, DashboardHomeSideEffect>, ViewModel() {
 
-    override val container = container<DashboardState, DashboardSideEffect>(DashboardState())
+    override val container = container<DashboardHomeState, DashboardHomeSideEffect>(DashboardHomeState())
 
-    private val _token = MutableStateFlow("")
-    val token = _token.asStateFlow()
-
-    init {
-        getToken()
-    }
-
-    private fun getToken() = viewModelScope.launch {
+    fun getZones(token: String) = viewModelScope.launch {
         intent {
-            reduce { state.copy(uiState = UiState.Loading) }
-            val token = getUserTokenUseCase()
-            if (token != null && token != "") {
-                reduce {
-                    state.copy(
-                        tokenAvailable = true
-                    )
-                }
-                _token.value = token
-                getZones()
-            } else {
-                reduce {
-                    state.copy(
-                        uiState = UiState.Failed,
-                        tokenAvailable = false
-                    )
-                }
-                postSideEffect(DashboardSideEffect.TokenUnavailable)
-            }
-        }
-    }
-
-    private fun getZones() = viewModelScope.launch {
-        intent {
-            val request = getZonesUseCase(token.value, state.currentPage)
+            val request = getZonesUseCase(token, state.currentPage)
             if (request.success) {
                 reduce {
                     state.copy(
@@ -73,7 +41,7 @@ class DashboardViewModel @Inject constructor(
                         uiState = UiState.Failed
                     )
                 }
-                postSideEffect(DashboardSideEffect.APIFailed(request.errors))
+                postSideEffect(DashboardHomeSideEffect.APIFailed(request.errors))
             }
         }
     }
