@@ -5,6 +5,7 @@ import com.kongjak.cloudflaremanager.data.PAGE
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Header
+import retrofit2.http.Path
 import retrofit2.http.Query
 
 interface API {
@@ -18,5 +19,11 @@ interface API {
     suspend fun getZones(
         @Header(AUTHORIZATION) token: String,
         @Query(PAGE) page: Int
+    ): Response<Any>
+
+    @GET("zones/{id}")
+    suspend fun getZoneDetail(
+        @Header(AUTHORIZATION) token: String,
+        @Path("id") id: String,
     ): Response<Any>
 }
