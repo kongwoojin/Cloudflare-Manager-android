@@ -2,12 +2,12 @@ package com.kongjak.cloudflaremanager.data.datasource.remote
 
 import com.google.gson.Gson
 import com.kongjak.cloudflaremanager.data.api.API
-import com.kongjak.cloudflaremanager.data.model.zone.list.ZoneListResponse
 import com.kongjak.cloudflaremanager.data.model.user.verify.VerifyResponse
 import com.kongjak.cloudflaremanager.data.model.zone.detail.ZoneDetailResponse
-import com.kongjak.cloudflaremanager.domain.model.interfaces.zone.list.ZoneList
+import com.kongjak.cloudflaremanager.data.model.zone.list.ZoneListResponse
 import com.kongjak.cloudflaremanager.domain.model.interfaces.user.verify.Verify
 import com.kongjak.cloudflaremanager.domain.model.interfaces.zone.detail.ZoneDetail
+import com.kongjak.cloudflaremanager.domain.model.interfaces.zone.list.ZoneList
 import javax.inject.Inject
 
 class CloudflareRemoteDataSource @Inject constructor(private val api: API) {

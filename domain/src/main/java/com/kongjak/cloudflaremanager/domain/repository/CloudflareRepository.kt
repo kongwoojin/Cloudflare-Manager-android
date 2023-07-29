@@ -1,8 +1,8 @@
 package com.kongjak.cloudflaremanager.domain.repository
 
-import com.kongjak.cloudflaremanager.domain.model.interfaces.zone.list.ZoneList
 import com.kongjak.cloudflaremanager.domain.model.interfaces.user.verify.Verify
 import com.kongjak.cloudflaremanager.domain.model.interfaces.zone.detail.ZoneDetail
+import com.kongjak.cloudflaremanager.domain.model.interfaces.zone.list.ZoneList
 
 interface CloudflareRepository {
     suspend fun verifyToken(token: String): Verify

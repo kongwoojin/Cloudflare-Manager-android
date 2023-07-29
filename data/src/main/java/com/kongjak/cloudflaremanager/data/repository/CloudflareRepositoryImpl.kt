@@ -1,9 +1,9 @@
 package com.kongjak.cloudflaremanager.data.repository
 
 import com.kongjak.cloudflaremanager.data.datasource.remote.CloudflareRemoteDataSource
-import com.kongjak.cloudflaremanager.domain.model.interfaces.zone.list.ZoneList
 import com.kongjak.cloudflaremanager.domain.model.interfaces.user.verify.Verify
 import com.kongjak.cloudflaremanager.domain.model.interfaces.zone.detail.ZoneDetail
+import com.kongjak.cloudflaremanager.domain.model.interfaces.zone.list.ZoneList
 import com.kongjak.cloudflaremanager.domain.repository.CloudflareRepository
 import javax.inject.Inject
 

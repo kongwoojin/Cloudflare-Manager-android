@@ -66,7 +66,6 @@ fun LoginScreen(loginViewModel: LoginViewModel) {
             }
         }
     )
-
 }
 
 private fun handleSideEffect(sideEffect: LoginSideEffect) {

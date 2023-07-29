@@ -8,5 +8,5 @@ data class DashboardHomeState(
     val tokenAvailable: Boolean = false,
     val result: List<Result>? = emptyList(),
     val currentPage: Int = 1,
-    val isLastPage: Boolean = false,
+    val isLastPage: Boolean = false
 )

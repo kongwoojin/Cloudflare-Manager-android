@@ -16,7 +16,6 @@ fun DashboardDetail(
     LaunchedEffect(key1 = Unit) {
         dashboardDetailViewModel.getZoneDetail(token, id)
     }
-
 }
 
 private fun handleSideEffect(sideEffect: DashboardDetailSideEffect) {

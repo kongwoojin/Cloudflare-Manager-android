@@ -144,7 +144,6 @@ private fun handleSideEffect(sideEffect: DashboardHomeSideEffect) {
     }
 }
 
-
 @Composable
 fun LazyListState.OnBottomReached(
     loadMore: () -> Unit

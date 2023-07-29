@@ -8,4 +8,4 @@ data class ZoneDetailResponse(
     override val messages: List<Any>,
     override val result: ResultResponse,
     override val success: Boolean
-): ZoneDetail
+) : ZoneDetail

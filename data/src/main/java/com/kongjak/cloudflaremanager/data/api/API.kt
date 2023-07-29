@@ -24,6 +24,6 @@ interface API {
     @GET("zones/{id}")
     suspend fun getZoneDetail(
         @Header(AUTHORIZATION) token: String,
-        @Path("id") id: String,
+        @Path("id") id: String
     ): Response<Any>
 }

@@ -1,12 +1,5 @@
 package com.kongjak.cloudflaremanager.domain.model.interfaces.zone.common
 
-import com.kongjak.cloudflaremanager.domain.model.interfaces.zone.common.Account
-import com.kongjak.cloudflaremanager.domain.model.interfaces.zone.common.Meta
-import com.kongjak.cloudflaremanager.domain.model.interfaces.zone.common.Owner
-import com.kongjak.cloudflaremanager.domain.model.interfaces.zone.common.Plan
-import com.kongjak.cloudflaremanager.domain.model.interfaces.zone.common.Tenant
-import com.kongjak.cloudflaremanager.domain.model.interfaces.zone.common.TenantUnit
-
 interface Result {
     val account: Account
     val activatedOn: String

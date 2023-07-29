@@ -1,12 +1,6 @@
 package com.kongjak.cloudflaremanager.data.model.zone.common
 
 import com.google.gson.annotations.SerializedName
-import com.kongjak.cloudflaremanager.data.model.zone.common.AccountResponse
-import com.kongjak.cloudflaremanager.data.model.zone.common.MetaResponse
-import com.kongjak.cloudflaremanager.data.model.zone.common.OwnerResponse
-import com.kongjak.cloudflaremanager.data.model.zone.common.PlanResponse
-import com.kongjak.cloudflaremanager.data.model.zone.common.TenantResponse
-import com.kongjak.cloudflaremanager.data.model.zone.common.TenantUnitResponse
 import com.kongjak.cloudflaremanager.domain.model.interfaces.zone.common.Result
 
 data class ResultResponse(
